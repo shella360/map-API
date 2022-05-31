@@ -6,20 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>map-API</title>
+    <link rel="shortcut icon" href="👻">
     <style>
         body{
             height: 100vh;
+            margin: 0;
         }
         #map {
             width: 80%;
-            height: 80%;
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
-    <div>👻</div>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQvOOW4w4oqB1TLGobirXktJd7ZPq8Y4Y&libraries=places,drawing,geometry&v=3&callback=initMap">
         </script>
@@ -68,8 +69,8 @@
             };
  
             let map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 15,
-                center: latlang9, //座標
+                zoom: 13,
+                center: latlang5, //座標
             });
             let markerPos1 ={
                 position: latlang1,
@@ -216,7 +217,7 @@
             let polylinePath = new google.maps.Polyline({
                 path: polylinePathPoints,
                 geodesic: true,
-                strokeColor: '#008800',
+                strokeColor: 'skyblue',
                 strokeOpacity: 0.8,
                 strokeWeight: 10,
                 editable: false,
