@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map-API</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+        #map {
+            width: 80%;
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div>👻</div>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQvOOW4w4oqB1TLGobirXktJd7ZPq8Y4Y&libraries=places,drawing,geometry&v=3&callback=initMap">
+        </script>
+    <script>
+        function initMap() {
+            let latlang1 ={
+                lat: 24.309403049763628, 
+                lng: 120.73288394007761,
+            };
+            let latlang2 = {
+                lat: 24.254260357089823, //緯度
+                lng: 120.72353524192309, //經度
+            };
+            let latlang3 = {
+                lat: 24.234304217521622, 
+                lng: 120.71040296592506,
+            };
+            let latlang4 = {
+                lat: 24.21278107166665 , 
+                lng: 120.70582138082163,
+            };
+            let latlang5 = {
+                lat: 24.195304212621355, 
+                lng: 120.70397929903123,
+            };
+            let latlang6 = {
+                lat: 24.180275122144092, 
+                lng: 120.70198486095562,
+            };
+            let latlang7 = {
+                lat: 24.16425640334639 , 
+                lng: 120.69985204930721
+            };
+            let latlang8 = {
+                lat: 24.14907606459672 , 
+                lng: 120.69777575889151,
+            };
+            let latlang9 = {
+                lat: 24.13731510507929 , 
+                lng: 120.686901648602  ,
+                
+            };
+            let latlang10 = {
+                lat: 24.128704504163554, 
+                lng: 120.6664790642416  ,
+            };
+ 
+            let map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: latlang9, //座標
+            });
+            let markerPos1 ={
+                position: latlang1,
+                map:map
+            };
+            let markerPos2 = {
+                position: latlang2,  //位置
+                map: map
+            };
+            let markerPos3 = {
+                position: latlang3, 
+                map: map
+            };
+            let markerPos4 = {
+                position: latlang4, 
+                map: map
+            };
+            let markerPos5 = {
+                position: latlang5, 
+                map: map
+            };
+            let markerPos6 = {
+                position: latlang6, 
+                map: map
+            };
+            let markerPos7 = {
+                position: latlang7, 
+                map: map
+            };
+            let markerPos8 = {
+                position: latlang8, 
+                map: map
+            };
+            let markerPos9 = {
+                position: latlang9, 
+                map: map
+            };
+            let markerPos10 = {
+                position: latlang10, 
+                map: map
+            };
+            let infoWinOpt1 ={
+                content: "<h2>后里火車站</h2>"
+            };
+            let infoWinOpt2 = {
+                content: "<h2>豐原火車站</h2>"
+            };
+            let infoWinOpt3 = {
+                content: "<h2>栗林火車站</h2>"
+            }; 
+            let infoWinOpt4 = {
+                content: "<h2>潭子火車站</h2>"
+            }; 
+            let infoWinOpt5 = {
+                content: "<h2>頭家厝火車站</h2>"
+            }; 
+            let infoWinOpt6 = {
+                content: "<h2>松竹火車站</h2>"
+            }; 
+            let infoWinOpt7 = {
+                content: "<h2>太原火車站</h2>"
+            }; 
+            let infoWinOpt8 = {
+                content: "<h2>精武火車站</h2>"
+            }; 
+            let infoWinOpt9 = {
+                content: "<h2>台中火車站</h2>"
+            }; 
+            let infoWinOpt10 = {
+                content: "<h2>五權火車站</h2>"
+            }; 
+
+            let infoWin1 = new google.maps.InfoWindow(infoWinOpt1);
+            let infoWin2 = new google.maps.InfoWindow(infoWinOpt2);
+            let infoWin3 = new google.maps.InfoWindow(infoWinOpt3);
+            let infoWin4 = new google.maps.InfoWindow(infoWinOpt4);
+            let infoWin5 = new google.maps.InfoWindow(infoWinOpt5);
+            let infoWin6 = new google.maps.InfoWindow(infoWinOpt6);
+            let infoWin7 = new google.maps.InfoWindow(infoWinOpt7);
+            let infoWin8 = new google.maps.InfoWindow(infoWinOpt8);
+            let infoWin9 = new google.maps.InfoWindow(infoWinOpt9);
+            let infoWin10 = new google.maps.InfoWindow(infoWinOpt10);
+
+            let marker1 = new google.maps.Marker(markerPos1);
+            marker1.addListener('click',function () {
+                infoWin1.open(map,marker1);
+            })
+
+            let marker2 = new google.maps.Marker(markerPos2);
+            marker2.addListener("click", function () {
+                infoWin2.open(map, marker2);
+            });
+
+            let marker3 = new google.maps.Marker(markerPos3);
+            marker3.addListener("click", function () {
+                infoWin3.open(map, marker3);
+            });
+
+            let marker4 = new google.maps.Marker(markerPos4);
+            marker4.addListener("click", function () {
+                infoWin4.open(map, marker4);
+            });
+
+            let marker5 = new google.maps.Marker(markerPos5);
+            marker5.addListener("click", function () {
+                infoWin5.open(map, marker5);
+            });
+
+            let marker6 = new google.maps.Marker(markerPos6);
+            marker6.addListener("click", function () {
+                infoWin6.open(map, marker6);
+            });
+
+            let marker7 = new google.maps.Marker(markerPos7);
+            marker7.addListener("click", function () {
+                infoWin7.open(map, marker7);
+            });
+
+            let marker8 = new google.maps.Marker(markerPos8);
+            marker8.addListener("click", function () {
+                infoWin8.open(map, marker8);
+            });
+            let marker9 = new google.maps.Marker(markerPos9);
+            marker9.addListener("click", function () {
+                infoWin9.open(map, marker9);
+            });
+            let marker10 = new google.maps.Marker(markerPos10);
+            marker10.addListener("click", function () {
+                infoWin10.open(map, marker10);
+            });
+
+            let polylinePathPoints = [
+                { lat: 24.309403049763628, lng: 120.73288394007761 }, //后里
+                { lat: 24.254260357089823, lng: 120.72353524192309 }, //豐原
+                { lat: 24.234304217521622, lng: 120.71040296592506 }, //栗林
+                { lat: 24.21278107166665 , lng: 120.70582138082163 }, //潭子
+                { lat: 24.195304212621355, lng: 120.70397929903123 }, //頭家厝
+                { lat: 24.180275122144092, lng: 120.70198486095562 }, //松竹
+                { lat: 24.16425640334639 , lng: 120.69985204930721 }, //太原
+                { lat: 24.14907606459672 , lng: 120.69777575889151 }, //精武
+                { lat: 24.13731510507929 , lng: 120.686901648602   }, //台中
+                { lat: 24.128704504163554, lng: 120.6664790642416  }, //五權
+            ];
+            let polylinePath = new google.maps.Polyline({
+                path: polylinePathPoints,
+                geodesic: true,
+                strokeColor: '#008800',
+                strokeOpacity: 0.8,
+                strokeWeight: 10,
+                editable: false,
+                draggable: false,
+            });
+            polylinePath.setMap(map);
+        }
+
+    </script>
+</body>
+
+</html>
