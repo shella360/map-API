@@ -21,6 +21,7 @@
 
 <body>
     <div id="map"></div>
+   
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQvOOW4w4oqB1TLGobirXktJd7ZPq8Y4Y&libraries=places,drawing,geometry&v=3&callback=initMap">
         </script>
@@ -48,8 +49,8 @@
                 const marker = new google.maps.Marker({
                     position,
                     map,
-                    title:`${title}`,
-                   label:`${i+1}`,
+                    title:` <b>${title}</b>`,
+                     label:`${i+1}`,
                 });
 
                 marker.addListener('click',()=>{
