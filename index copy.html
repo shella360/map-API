@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map-API</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+
+        #map {
+            width: 80%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQvOOW4w4oqB1TLGobirXktJd7ZPq8Y4Y&libraries=places,drawing,geometry&v=3&callback=initMap">
+        </script>
+    <script>
+        function initMap() {
+            let map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: { lat: 24.195304212621355, lng: 120.70397929903123 }, //座標
+            });
+
+            const stops = [
+                [{ lat: 24.309403049763628, lng: 120.73288394007761 }, '后里'],
+                [{ lat: 24.254260357089823, lng: 120.72353524192309 }, '豐原'],
+                [{ lat: 24.234304217521622, lng: 120.71040296592506 }, '栗林'],
+                [{ lat: 24.21278107166665, lng: 120.70582138082163 }, '潭子'],
+                [{ lat: 24.195304212621355, lng: 120.70397929903123 }, '頭家厝'],
+                [{ lat: 24.180275122144092, lng: 120.70198486095562 }, '松竹'],
+                [{ lat: 24.16425640334639, lng: 120.69985204930721 }, '太原'],
+                [{ lat: 24.14907606459672, lng: 120.69777575889151 }, '精武'],
+                [{ lat: 24.13731510507929, lng: 120.686901648602 }, '台中'],
+                [{ lat: 24.128704504163554, lng: 120.6664790642416 }, '五權'],
+            ]
+            const infoWin = new google.maps.InfoWindow();
+            stops.forEach(([position, title],i)=>{
+                const marker = new google.maps.Marker({
+                    position,
+                    map,
+                    title:`${title}`,
+                    label:`${i+1}`,
+                });
+
+                marker.addListener('click',()=>{
+                    infoWin.setContent(marker.title);
+                    infoWin.open(marker.map,marker);
+                })
+            });
+
+
+            let polylinePathPoints = [
+                { lat: 24.309403049763628, lng: 120.73288394007761 }, //后里
+                { lat: 24.254260357089823, lng: 120.72353524192309 }, //豐原
+                { lat: 24.234304217521622, lng: 120.71040296592506 }, //栗林
+                { lat: 24.21278107166665, lng: 120.70582138082163 }, //潭子
+                { lat: 24.195304212621355, lng: 120.70397929903123 }, //頭家厝
+                { lat: 24.180275122144092, lng: 120.70198486095562 }, //松竹
+                { lat: 24.16425640334639, lng: 120.69985204930721 }, //太原
+                { lat: 24.14907606459672, lng: 120.69777575889151 }, //精武
+                { lat: 24.13731510507929, lng: 120.686901648602 }, //台中
+                { lat: 24.128704504163554, lng: 120.6664790642416 }, //五權
+            ];
+            let polylinePath = new google.maps.Polyline({
+                path: polylinePathPoints,
+                geodesic: true,
+                strokeColor: 'skyblue',
+                strokeOpacity: 0.8,
+                strokeWeight: 10,
+                editable: false,
+                draggable: false,
+            });
+            polylinePath.setMap(map);
+        }
+
+    </script>
+</body>
+
+</html>
