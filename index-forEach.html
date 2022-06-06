@@ -21,7 +21,6 @@
 
 <body>
     <div id="map"></div>
-   
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQvOOW4w4oqB1TLGobirXktJd7ZPq8Y4Y&libraries=places,drawing,geometry&v=3&callback=initMap">
         </script>
@@ -45,17 +44,17 @@
                 [{ lat: 24.128704504163554, lng: 120.6664790642416 }, '五權'],
             ]
             const infoWin = new google.maps.InfoWindow();
-            stops.forEach(([position, title],i)=>{
+            stops.forEach(([position, title], i) => {
                 const marker = new google.maps.Marker({
                     position,
                     map,
-                    title:`<b>${title}</b>`,
-                    label:`${i+1}`,
+                    title: `<b>${title}</b>`,
+                    label: `${i + 1}`,
                 });
 
-                marker.addListener('click',()=>{
+                marker.addListener('click', () => {
                     infoWin.setContent(marker.title);
-                    infoWin.open(marker.map,marker);
+                    infoWin.open(marker.map, marker);
                 })
             });
 
